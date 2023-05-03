@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="./assets/styles.css">
 </head>
 
-<body class="bg-secondary">
+<body class="corpo" data-bs-theme="dark">
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand mb-2" href="#"><i class="bi bi-joystick me-2"></i>Almost Store - Sua quase loja de
                 jogos</a>
@@ -50,7 +50,7 @@
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Digite sua busca" aria-label="filtrar">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
                 </form>
 
             </div>
@@ -59,9 +59,10 @@
 
     <main class="container">
         <div class="d-inline-flex mt-4 typewriter">
-            <h1>Selecione os produtos</h1>
+            <h1>Selecione ou Cadastre os produtos</h1>
         </div>
-        <div class="row mt-5 d-flex justify-content-center">
+        <!-- <div class="row mt-5 d-flex justify-content-center">
+
             <div class="col-3">
                 <select class="form-select" aria-label="Escolha a Plataforma do jogo">
                     <option selected class="col-lg-auto ">Escolha a Plataforma</option>
@@ -86,19 +87,89 @@
             <div class="col-1">
                 <button type="button" class="btn btn-primary">Salvar</button>
             </div>
+        </div> -->
+        <div class="row mt-2 d-flex justify-content-center">
+            <div class="col-3">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Cadastrar produtos
+                </button>
+
+                <div id="tarefas" class="row mx-auto my-2 g-3">
+                </div> <!-- row -->
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar produtos</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mt-2 g-3">
+                            <div class="col-12">
+                                <input id="titulo" type="text" class="form-control" placeholder="Título"
+                                    aria-label="título">
+                            </div>
+                            <div class="col-12">
+                                <input id="descricao" type="text" class="form-control" placeholder="Descrição do Jogo"
+                                    aria-label="descricao">
+                            </div>
+                            <div class="col-12">
+                                <select id="plataforma" class="form-select" aria-label="Escolha a Plataforma do jogo">
+                                    <option selected class="col-lg-auto ">Escolha a Plataforma</option>
+                                    <option value="1">Playstation</option>
+                                    <option value="2">Xbox</option>
+                                    <option value="3">Nintendo Switch</option>
+                                    <option value="4">Windows</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Selecione a Categoria">
+                                    <option selected class="col-lg-auto ">Selecione a Categoria</option>
+                                    <option value="1">Ação e Aventura</option>
+                                    <option value="2">FPS</option>
+                                    <option value="3">Luta</option>
+                                    <option value="4">RPG</option>
+                                    <option value="5">Esporte</option>
+                                    <option value="6">Simulação</option>
+                                    <option value="3">Plataforma</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <input id="pontos" type="number" class="form-control" placeholder="Preço em pontos"
+                                    aria-label="preco">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button id="salvar" type="button" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="row mt-4 d-flex justify-content-center">
 
             <div class="card text-bg-light my-2 mx-2 col-lg-4 col-md-5 col-sm-12">
-                <div class="card-title mt-2">
+                <div class="card-title fs-6 mt-2">
                     Horizon: Forbiden West
                 </div>
-                <img src="./assets/img/HFW_cover.webp" class="mt-1 mx-auto card-img-top" alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
+                <img src="./assets/img/HFW_cover.webp" class="mt-1 mx-auto card-img-top"
+                    alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
                 <div class="card-body">
-                    <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text text-center">Preço</p>
-                    <p class="card-tex text-secondary">Categorias: <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p></p>
+                    <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
+                        content.</p>
+
+                    <p class="card-tex text-secondary mb-0">Plataformas:</p>
+                    <p class="card-subtitle text-secondary categorias">PC, Xbox, Playstation</p>
+                    <p class="card-tex text-secondary mt-1 mb-0">Categorias:</p>
+                    <p class="card-subtitle text-secondary categorias">Ação, Aventura</p>
+                    <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">7.507 pts</span></h4>
                 </div>
                 <div class="card-footer d-flex justify-content-around">
@@ -113,14 +184,18 @@
 
 
             <div class="card text-bg-light my-2 mx-2 col-lg-4 col-md-5 col-sm-12">
-                <div class="card-title mt-2">
+                <div class="card-title fs-6 mt-2">
                     Anno 1800
                 </div>
-                <img src="./assets/img/anno_1800__cover.jpg" class="mt-1 mx-auto card-img-top" alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
+                <img src="./assets/img/anno_1800__cover.jpg" class="mt-1 mx-auto card-img-top"
+                    alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
                 <div class="card-body">
-                    <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text text-center">Preço</p>
-                    <p class="card-tex text-secondary">Categorias: <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p></p>
+                    <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
+                        content.</p>
+
+                    <p class="card-tex text-secondary">Categorias:
+                    <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p>
+                    <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">2.284 pts</span></h4>
                 </div>
                 <div class="card-footer d-flex justify-content-around">
@@ -134,14 +209,18 @@
             </div>
 
             <div class="card text-bg-light my-2 mx-2 col-lg-4 col-md-5 col-sm-12">
-                <div class="card-title mt-2">
+                <div class="card-title fs-6 mt-2">
                     Tom Clancy's Rainbow Six Siege
                 </div>
-                <img src="./assets/img/r6_cover.png" class="mt-1 mx-auto card-img-top" alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
+                <img src="./assets/img/r6_cover.png" class="mt-1 mx-auto card-img-top"
+                    alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
                 <div class="card-body">
-                    <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text text-center">Preço</p>
-                    <p class="card-tex text-secondary">Categorias: <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p></p>
+                    <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
+                        content.</p>
+
+                    <p class="card-tex text-secondary">Categorias:
+                    <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p>
+                    <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">1.901 pts</span></h4>
                 </div>
                 <div class="card-footer d-flex justify-content-around">
@@ -155,14 +234,18 @@
             </div>
 
             <div class="card text-bg-light my-2 mx-2 col-lg-4 col-md-5 col-sm-12">
-                <div class="card-title mt-2">
+                <div class="card-title fs-6 mt-2">
                     Red Dead Redemption II
                 </div>
-                <img src="./assets/img/RDR_2_Cover.jpg" class="mt-1 mx-auto card-img-top" alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
+                <img src="./assets/img/RDR_2_Cover.jpg" class="mt-1 mx-auto card-img-top"
+                    alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
                 <div class="card-body">
-                    <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text text-center">Preço</p>
-                    <p class="card-tex text-secondary">Categorias: <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p></p>
+                    <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
+                        content.</p>
+
+                    <p class="card-tex text-secondary">Categorias:
+                    <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p>
+                    <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">4.466 pts</span></h4>
                 </div>
                 <div class="card-footer d-flex justify-content-around">
@@ -176,14 +259,18 @@
             </div>
 
             <div class="card text-bg-light my-2 mx-2 col-lg-4 col-md-5 col-sm-12">
-                <div class="card-title mt-2">
+                <div class="card-title fs-6 mt-2">
                     Sifu
                 </div>
-                <img src="./assets/img/sifu_cover_art.jfif" class="mx-auto card-img-top" alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
+                <img src="./assets/img/sifu_cover_art.jfif" class="mx-auto card-img-top"
+                    alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
                 <div class="card-body">
-                    <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text text-center">Preço</p>
-                    <p class="card-tex text-secondary">Categorias: <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p></p>
+                    <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
+                        content.</p>
+
+                    <p class="card-tex text-secondary">Categorias:
+                    <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p>
+                    <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">3.806 pts</span></h4>
                 </div>
                 <div class="card-footer d-flex justify-content-around">
@@ -197,14 +284,18 @@
             </div>
 
             <div class="card text-bg-light my-2 mx-2 col-lg-4 col-md-5 col-sm-12">
-                <div class="card-title mt-2">
+                <div class="card-title fs-6 mt-2">
                     Spider-Man Remastered
                 </div>
-                <img src="./assets/img/spooderman_cover.jfif" class="mt-1 mx-auto card-img-top" alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
+                <img src="./assets/img/spooderman_cover.jfif" class="mt-1 mx-auto card-img-top"
+                    alt="Horizon: Forbiden West arte da capa" style="border-radius: 8px;">
                 <div class="card-body">
-                    <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text text-center">Preço</p>
-                    <p class="card-tex text-secondary">Categorias: <p class="card-subtitle text-secondary categorias">PC, Xbox, Playstation</p></p>
+                    <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
+                        content.</p>
+
+                    <p class="card-tex text-secondary">Categorias:
+                    <p class="card-subtitle text-secondary categorias">PC, Xbox, Playstation</p>
+                    <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">3.045 pts</span></h4>
                 </div>
                 <div class="card-footer d-flex justify-content-around">
