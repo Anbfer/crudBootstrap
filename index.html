@@ -118,6 +118,10 @@
                                     aria-label="descricao">
                             </div>
                             <div class="col-12">
+                                <input id="imgCapaJogo" type="text" class="form-control" placeholder="Capa do Jogo"
+                                    aria-label="descricao">
+                            </div>
+                            <div class="col-12">
                                 <select id="plataforma" class="form-select" aria-label="Escolha a Plataforma do jogo">
                                     <option selected class="col-lg-auto ">Escolha a Plataforma</option>
                                     <option value="1">Playstation</option>
@@ -127,7 +131,7 @@
                                 </select>
                             </div>
                             <div>
-                                <select class="form-select" aria-label="Selecione a Categoria">
+                                <select id="categoria" class="form-select" aria-label="Selecione a Categoria">
                                     <option selected class="col-lg-auto ">Selecione a Categoria</option>
                                     <option value="1">Ação e Aventura</option>
                                     <option value="2">FPS</option>
@@ -153,7 +157,7 @@
             </div>
         </div>
 
-        <div class="row mt-4 d-flex justify-content-center">
+        <div id="jogos" class="row mt-4 d-flex justify-content-center">
 
             <div class="card text-bg-light my-2 mx-2 col-lg-4 col-md-5 col-sm-12">
                 <div class="card-title fs-6 mt-2">
@@ -311,6 +315,7 @@
         </div>
 
     </main>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
