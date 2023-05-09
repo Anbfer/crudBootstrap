@@ -61,33 +61,6 @@
         <div class="d-inline-flex mt-4 typewriter">
             <h1>Selecione ou Cadastre os produtos</h1>
         </div>
-        <!-- <div class="row mt-5 d-flex justify-content-center">
-
-            <div class="col-3">
-                <select class="form-select" aria-label="Escolha a Plataforma do jogo">
-                    <option selected class="col-lg-auto ">Escolha a Plataforma</option>
-                    <option value="1">Playstation</option>
-                    <option value="2">Xbox</option>
-                    <option value="3">Nintendo Switch</option>
-                    <option value="4">Windows</option>
-                </select>
-            </div>
-            <div class="col-3">
-                <select class="form-select" aria-label="Selecione o Gênero do Jogo">
-                    <option selected class="col-lg-auto ">Selecione o Gênero</option>
-                    <option value="1">Ação e Aventura</option>
-                    <option value="2">FPS</option>
-                    <option value="3">Luta</option>
-                    <option value="4">RPG</option>
-                    <option value="5">Esporte</option>
-                    <option value="6">Simulação</option>
-                    <option value="3">Plataforma</option>
-                </select>
-            </div>
-            <div class="col-1">
-                <button type="button" class="btn btn-primary">Salvar</button>
-            </div>
-        </div> -->
         <div class="row mt-2 d-flex justify-content-center">
             <div class="col-3">
                 <!-- Button trigger modal -->
@@ -124,22 +97,22 @@
                             <div class="col-12">
                                 <select id="plataforma" class="form-select" aria-label="Escolha a Plataforma do jogo">
                                     <option selected class="col-lg-auto ">Escolha a Plataforma</option>
-                                    <option value="1">Playstation</option>
-                                    <option value="2">Xbox</option>
-                                    <option value="3">Nintendo Switch</option>
-                                    <option value="4">Windows</option>
+                                    <option value="Playstation">Playstation</option>
+                                    <option value="Xbox">Xbox</option>
+                                    <option value="Nintendo Switch">Nintendo Switch</option>
+                                    <option value="Windows">Windows</option>
                                 </select>
                             </div>
                             <div>
                                 <select id="categoria" class="form-select" aria-label="Selecione a Categoria">
                                     <option selected class="col-lg-auto ">Selecione a Categoria</option>
-                                    <option value="1">Ação e Aventura</option>
-                                    <option value="2">FPS</option>
-                                    <option value="3">Luta</option>
-                                    <option value="4">RPG</option>
-                                    <option value="5">Esporte</option>
-                                    <option value="6">Simulação</option>
-                                    <option value="3">Plataforma</option>
+                                    <option value="Ação e Aventura">Ação e Aventura</option>
+                                    <option value="FPS">FPS</option>
+                                    <option value="Luta">Luta</option>
+                                    <option value="RPG">RPG</option>
+                                    <option value="Esporte">Esporte</option>
+                                    <option value="Simulação">Simulação</option>
+                                    <option value="Plataforma">Plataforma</option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -168,19 +141,18 @@
                 <div class="card-body">
                     <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
                         content.</p>
-
-                    <p class="card-tex text-secondary mb-0">Plataformas:</p>
-                    <p class="card-subtitle text-secondary categorias">PC, Xbox, Playstation</p>
-                    <p class="card-tex text-secondary mt-1 mb-0">Categorias:</p>
+                    <p class="card-tex text-secondary mb-0">Plataforma:</p>
+                    <p class="card-subtitle text-secondary categorias">PC</p>
+                    <p class="card-tex text-secondary mt-1 mb-0">Categoria:</p>
                     <p class="card-subtitle text-secondary categorias">Ação, Aventura</p>
                     <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">7.507 pts</span></h4>
                 </div>
                 <div class="card-footer d-flex justify-content-around">
-                    <a href="#" class="btn btn-success col-3" title="Adicionar ao carrinho">
+                    <a href="#" class="btn btn-success col-3" title="Adicionar ao estoque">
                         <i class="bi bi-check2"></i>
                     </a>
-                    <a href="#" class="btn btn-danger col-3" title="Excluir do carrinho">
+                    <a href="#" class="btn btn-danger col-3" title="Excluir do estoque" onclick="apagar(this)">
                         <i class="bi bi-trash3"></i>
                     </a>
                 </div>
@@ -197,8 +169,10 @@
                     <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
                         content.</p>
 
-                    <p class="card-tex text-secondary">Categorias:
-                    <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p>
+                    <p class="card-tex text-secondary mb-0">Plataforma:</p>
+                    <p class="card-subtitle text-secondary categorias">PC</p>
+                    <p class="card-tex text-secondary mt-1 mb-0">Categoria:</p>
+                    <p class="card-subtitle text-secondary categorias">Ação, Aventura</p>
                     <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">2.284 pts</span></h4>
                 </div>
@@ -206,7 +180,7 @@
                     <a href="#" class="btn btn-success col-3" title="Adicionar ao carrinho">
                         <i class="bi bi-check2"></i>
                     </a>
-                    <a href="#" class="btn btn-danger col-3" title="Excluir do carrinho">
+                    <a href="#" class="btn btn-danger col-3" title="Excluir do estoque" onclick="apagar(this)">
                         <i class="bi bi-trash3"></i>
                     </a>
                 </div>
@@ -222,8 +196,10 @@
                     <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
                         content.</p>
 
-                    <p class="card-tex text-secondary">Categorias:
-                    <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p>
+                    <p class="card-tex text-secondary mb-0">Plataforma:</p>
+                    <p class="card-subtitle text-secondary categorias">PC</p>
+                    <p class="card-tex text-secondary mt-1 mb-0">Categoria:</p>
+                    <p class="card-subtitle text-secondary categorias">Ação, Aventura</p>
                     <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">1.901 pts</span></h4>
                 </div>
@@ -231,7 +207,7 @@
                     <a href="#" class="btn btn-success col-3" title="Adicionar ao carrinho">
                         <i class="bi bi-check2"></i>
                     </a>
-                    <a href="#" class="btn btn-danger col-3" title="Excluir do carrinho">
+                    <a href="#" class="btn btn-danger col-3" title="Excluir do estoque" onclick="apagar(this)">
                         <i class="bi bi-trash3"></i>
                     </a>
                 </div>
@@ -247,8 +223,10 @@
                     <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
                         content.</p>
 
-                    <p class="card-tex text-secondary">Categorias:
-                    <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p>
+                    <p class="card-tex text-secondary mb-0">Plataforma:</p>
+                    <p class="card-subtitle text-secondary categorias">PC</p>
+                    <p class="card-tex text-secondary mt-1 mb-0">Categoria:</p>
+                    <p class="card-subtitle text-secondary categorias">Ação, Aventura</p>
                     <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">4.466 pts</span></h4>
                 </div>
@@ -256,7 +234,7 @@
                     <a href="#" class="btn btn-success col-3" title="Adicionar ao carrinho">
                         <i class="bi bi-check2"></i>
                     </a>
-                    <a href="#" class="btn btn-danger col-3" title="Excluir do carrinho">
+                    <a href="#" class="btn btn-danger col-3" title="Excluir do estoque" onclick="apagar(this)">
                         <i class="bi bi-trash3"></i>
                     </a>
                 </div>
@@ -272,8 +250,10 @@
                     <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
                         content.</p>
 
-                    <p class="card-tex text-secondary">Categorias:
-                    <p class="card-subtitle text-secondary categorias ">PC, Xbox, Playstation</p>
+                    <p class="card-tex text-secondary mb-0">Plataforma:</p>
+                    <p class="card-subtitle text-secondary categorias">PC</p>
+                    <p class="card-tex text-secondary mt-1 mb-0">Categoria:</p>
+                    <p class="card-subtitle text-secondary categorias">Ação, Aventura</p>
                     <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">3.806 pts</span></h4>
                 </div>
@@ -281,7 +261,7 @@
                     <a href="#" class="btn btn-success col-3" title="Adicionar ao carrinho">
                         <i class="bi bi-check2"></i>
                     </a>
-                    <a href="#" class="btn btn-danger col-3" title="Excluir do carrinho">
+                    <a href="#" class="btn btn-danger col-3" title="Excluir do estoque" onclick="apagar(this)">
                         <i class="bi bi-trash3"></i>
                     </a>
                 </div>
@@ -297,8 +277,10 @@
                     <p class="card-text text-center ">With supporting text below as a natural lead-in to additional
                         content.</p>
 
-                    <p class="card-tex text-secondary">Categorias:
-                    <p class="card-subtitle text-secondary categorias">PC, Xbox, Playstation</p>
+                    <p class="card-tex text-secondary mb-0">Plataforma:</p>
+                    <p class="card-subtitle text-secondary categorias">PC</p>
+                    <p class="card-tex text-secondary mt-1 mb-0">Categoria:</p>
+                    <p class="card-subtitle text-secondary categorias">Ação, Aventura</p>
                     <p class="card-text text-center mb-1">Preço</p>
                     <h4><span class="badge text-bg-primary d-flex justify-content-center">3.045 pts</span></h4>
                 </div>
@@ -306,7 +288,7 @@
                     <a href="#" class="btn btn-success col-3" title="Adicionar ao carrinho">
                         <i class="bi bi-check2"></i>
                     </a>
-                    <a href="#" class="btn btn-danger col-3" title="Excluir do carrinho">
+                    <a href="#" class="btn btn-danger col-3" title="Excluir do estoque" onclick="apagar(this)">
                         <i class="bi bi-trash3"></i>
                     </a>
                 </div>

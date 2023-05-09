@@ -5,10 +5,10 @@ let jogos = []
 window.addEventListener("load", () => {
     jogos = JSON.parse(localStorage.getItem("jogos")) || []
     atualizar()
+    carregaTituloCard()
 })
 
 function atualizar() {
-    document.querySelector("#jogos").innerHTML = ""
     jogos.forEach(jogo =>
         document.querySelector("#jogos").innerHTML += criaCard(jogo))
 }
@@ -41,6 +41,14 @@ function cadastrarJogo() {
     jogos.push(jogo)
     localStorage.setItem("jogos", JSON.stringify(jogos))
 
+
+    titulo.innerHTML = ""
+    descricao.innerHTML = ""
+    imagemCapa.innerHTML = ""
+    plataforma.innerHTML = ""
+    categoria.innerHTML = ""
+    precoPontos.innerHTML = ""
+
     atualizar()
     modal.hide()
 }
@@ -59,8 +67,28 @@ function isValid(valor, campo) {
 }
 
 function apagar(botao) {
-    botao.parentNode.parentNode.parentNode.remove()
+    botao.parentNode.parentNode.remove()
+
+    apagarLocalStorage(botao)
 }
+
+function carregaTituloCard() {
+
+    titulosCard = document.querySelectorAll(".card-title")
+
+    let titulos = []
+
+
+    titulosCard.forEach(titulo =>
+        titulos.push(titulo.innerText)
+    )
+
+    console.log(titulos)
+
+    return titulos
+
+}
+
 
 function criaCard(jogo) {
     const card = `
@@ -78,13 +106,13 @@ function criaCard(jogo) {
         <p class="card-tex text-secondary mt-1 mb-0">Categoria:</p>
         <p class="card-subtitle text-secondary categorias">${jogo.categoria}</p>
         <p class="card-text text-center mb-1">Preço</p>
-        <h4><span class="badge text-bg-primary d-flex justify-content-center">${jogo.precoPontos}</span></h4>
+        <h4><span class="badge text-bg-primary d-flex justify-content-center">${jogo.precoPontos} pts</span></h4>
     </div >
         <div class="card-footer d-flex justify-content-around">
-            <a href="#" class="btn btn-success col-3" title="Adicionar ao carrinho">
+            <a href="#" class="btn btn-success col-3" title="Adicionar ao estoque">
                 <i class="bi bi-check2"></i>
             </a>
-            <a href="#" class="btn btn-danger col-3" title="Excluir do carrinho" onclick="apagar()">
+            <a href="#" class="btn btn-danger col-3" title="Excluir do estoque" onclick="apagar(this)">
                 <i class="bi bi-trash3"></i>
             </a>
         </div>
