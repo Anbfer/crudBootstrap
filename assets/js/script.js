@@ -4,13 +4,23 @@ let jogos = []
 
 window.addEventListener("load", () => {
     jogos = JSON.parse(localStorage.getItem("jogos")) || []
+    alteraTituloFiltro(jogos)
     atualizar()
-    carregaTituloCard()
 })
 
 function atualizar() {
+    localStorage.setItem("jogos", JSON.stringify(jogos))
+    document.querySelector("#jogos").innerHTML = ""
     jogos.forEach(jogo =>
         document.querySelector("#jogos").innerHTML += criaCard(jogo))
+
+}
+
+function filtrar(lista) {
+    document.querySelector("#jogos").innerHTML = ""
+    lista.forEach(jogo =>
+        document.querySelector("#jogos").innerHTML += criaCard(jogo)
+    )
 }
 
 function cadastrarJogo() {
@@ -21,14 +31,17 @@ function cadastrarJogo() {
     const plataforma = document.querySelector("#plataforma").value
     const categoria = document.querySelector("#categoria").value
     const precoPontos = document.querySelector("#pontos").value
+    const modal = bootstrap.Modal.getInstance(document.querySelector("#exampleModal"))
 
     const jogo = {
+        id: Date.now(),
         titulo,
         descricao,
         imagemCapa,
         plataforma,
         categoria,
-        precoPontos
+        precoPontos,
+        disponivel: false
     }
 
     if (!isValid(jogo.titulo, document.querySelector("#titulo"))) return
@@ -39,15 +52,13 @@ function cadastrarJogo() {
     if (!isValid(jogo.precoPontos, document.querySelector("#pontos"))) return
 
     jogos.push(jogo)
-    localStorage.setItem("jogos", JSON.stringify(jogos))
 
-
-    titulo.innerHTML = ""
-    descricao.innerHTML = ""
-    imagemCapa.innerHTML = ""
-    plataforma.innerHTML = ""
-    categoria.innerHTML = ""
-    precoPontos.innerHTML = ""
+    titulo.innerText = ""
+    descricao.innerText = ""
+    imagemCapa.innerText = ""
+    plataforma.innerText = ""
+    categoria.innerText = ""
+    precoPontos.innerText = ""
 
     atualizar()
     modal.hide()
@@ -66,53 +77,46 @@ function isValid(valor, campo) {
 
 }
 
-function apagar(botao) {
-    botao.parentNode.parentNode.remove()
-
-    apagarLocalStorage(botao)
+function apagarJogo(id) {
+    jogos = jogos.filter(jogo => jogo.id !== id)
+    atualizar()
 }
 
-function carregaTituloCard() {
+function adicionarEstoque(id) {
+    let jogoEncontrado = jogos.find(jogo => jogo.id == id)
 
-    titulosCard = document.querySelectorAll(".card-title")
+    jogoEncontrado.disponivel = true
 
-    let titulos = []
-
-
-    titulosCard.forEach(titulo =>
-        titulos.push(titulo.innerText)
-    )
-
-    console.log(titulos)
-
-    return titulos
-
+    atualizar()
 }
 
 
 function criaCard(jogo) {
+
+    let disabled = jogo.disponivel ? "disabled" : ""
+
     const card = `
     <div class="card text-bg-light my-2 mx-2 col-lg-4 col-md-5 col-sm-12">
-    <div class="card-title fs-6 mt-2">
-        ${jogo.titulo}
-    </div>
     <img src="${jogo.imagemCapa}" class="mt-1 mx-auto card-img-top"
         style="border-radius: 8px;">
     <div class="card-body">
-        <p class="card-text text-center ">${jogo.descricao}</p>
-
-        <p class="card-tex text-secondary mb-0">Plataforma:</p>
-        <p class="card-subtitle text-secondary categorias">${jogo.categoria}</p>
-        <p class="card-tex text-secondary mt-1 mb-0">Categoria:</p>
-        <p class="card-subtitle text-secondary categorias">${jogo.categoria}</p>
-        <p class="card-text text-center mb-1">Preço</p>
-        <h4><span class="badge text-bg-primary d-flex justify-content-center">${jogo.precoPontos} pts</span></h4>
+    <div class="card-title fw-bold fs-4">
+    ${jogo.titulo}
+    </div>
+    <p class="card-tex text-primary fw-bolder fs-5 mb-0">Visão Geral:</p>
+        <p class="card-text fs-6 fw-bold mt-3">${jogo.descricao}</p>
+        <p class="card-tex text-primary fw-bolder fs-5 mb-0">Plataforma:</p>
+        <p class="card-subtitle text-secondary fw-bold categorias">${jogo.plataforma}</p>
+        <p class="card-tex text-primary fs-5 fw-bolder mb-0">Categoria:</p>
+        <p class="card-subtitle text-secondary fw-bold categorias">${jogo.categoria}</p>
+        <p class="card-text text-center text-primary fs-5 fw-bolder mb-1">Preço</p>
+        <h4><span class="badge text-bg-primary d-flex fw-bold justify-content-center categorias">${jogo.precoPontos} pts</span></h4>
     </div >
         <div class="card-footer d-flex justify-content-around">
-            <a href="#" class="btn btn-success col-3" title="Adicionar ao estoque">
+            <a href="#" class="btn btn-success ${disabled} col-3" title="Adicionar ao estoque" onClick ="adicionarEstoque(${jogo.id})" >
                 <i class="bi bi-check2"></i>
             </a>
-            <a href="#" class="btn btn-danger col-3" title="Excluir do estoque" onclick="apagar(this)">
+            <a href="#" class="btn btn-danger col-3" title="Não disponível" onClick="apagarJogo(${jogo.id})">
                 <i class="bi bi-trash3"></i>
             </a>
         </div>

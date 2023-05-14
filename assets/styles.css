@@ -179,15 +179,18 @@
 }
 
 .corpo {
-    background: rgb(154, 229, 255);
-    background: radial-gradient(circle, rgba(154, 229, 255, 1) 0%, rgba(68, 140, 163, 1) 62%, rgba(0, 67, 97, 1) 100%);
+    background: url(./img/bgImg.jpg) repeat;
+    background-size: 180%;  
 }
 
 .typewriter h1 {
     color: #fff;
     overflow: hidden;
+    font-weight: bold;
+    text-shadow: 0px 2px 4px rgba(84, 84, 84, 0.83);
     /* Ensures the content is not revealed until the animation */
     border-right: .5ch solid #f8f9fa;
+    padding: .3ch;
     /* The typwriter cursor */
     white-space: nowrap;
     /* Keeps the content on a single line */
@@ -243,7 +246,13 @@
     border: none;
 }
 
-.form-select {
+.dropdown-item:hover {
+    background-color: var(--bs-gray-300);
+}
+
+.form-select,
+.form-control,
+.dropdown-menu {
     color: #000;
     background-color: var(--bs-gray-100);
     border: none;
@@ -251,7 +260,10 @@
 
 .card-title {
     text-align: center;
-    border-bottom: 1px solid var(--bs-gray-600);
+    color: var(--bs-gray-300);
+}
+.card-text{
+    color: var(--bs-gray-300);
 }
 
 .card-img-top {
@@ -275,15 +287,19 @@
 }
 
 .card {
-    background-color: var(--bs-gray-300) !important;
-    border-color: var(--bs-body-color);
+    background: hsla(243, 100%, 16%, 1);
+    background: linear-gradient(145deg, rgb(13, 134, 148) 10%, rgb(24, 17, 156) 85%) !important;
+
+    border-color: rgba(151, 151, 151, 0.678);
 }
 
 .categorias {
     transition: all .5s;
+    color: var(--bs-gray-300) !important;
+    font-size: medium !important;
 }
 
 .categorias:hover {
     transition: all .5s;
-    color: var(--azul) !important;
+    color: var(--bs-warning) !important;
 }
